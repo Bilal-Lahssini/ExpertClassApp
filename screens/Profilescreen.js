@@ -1,10 +1,12 @@
 import React from 'react';
 import { View, Text, Image, TouchableOpacity, StyleSheet, ScrollView } from 'react-native';
-const ProfileScreen = () => {
+import { useNavigation } from '@react-navigation/native';
+
+const Profilescreen = () => {
   // Replace with your actual icons and images paths
-  const backIcon = require('./assets/icons/back.png');
-  const moreIcon = require('./assets/icons/more.png');
-  const profileImage = require('./assets/img/profile-pic.png');
+  const backIcon = require('../assets/backicon.png');
+  const moreIcon = require('../assets/moreicon.png'); 
+  const profileImage = require('../assets/img/Luffy.png');
   // Dummy data for the profile
   const profileData = {
     name: 'Armin Barzegar',
@@ -16,6 +18,7 @@ const ProfileScreen = () => {
       following: 100,
     },
   };
+
   return (
     <ScrollView style={styles.container}>
       <View style={styles.header}>
@@ -32,10 +35,18 @@ const ProfileScreen = () => {
         <Text style={styles.role}>{profileData.role}</Text>
         <Text style={styles.bio}>{profileData.bio}</Text>
         <View style={styles.statsContainer}>
-          <Text style={styles.statNumber}>{profileData.stats.posts}</Text>
-          <Text style={styles.statNumber}>{profileData.stats.followers}</Text>
-          <Text style={styles.statNumber}>{profileData.stats.following}</Text>
-          {/* Add labels for stats */}
+          <View style={styles.statItem}>
+            <Text style={styles.statNumber}>{profileData.stats.posts}</Text>
+            <Text style={styles.statLabel}>Posts</Text>
+          </View>
+          <View style={styles.statItem}>
+            <Text style={styles.statNumber}>{profileData.stats.followers}</Text>
+            <Text style={styles.statLabel}>Followers</Text>
+          </View>
+          <View style={styles.statItem}>
+            <Text style={styles.statNumber}>{profileData.stats.following}</Text>
+            <Text style={styles.statLabel}>Following</Text>
+          </View>
         </View>
         {/* Add content grid or list */}
       </View>
@@ -43,6 +54,7 @@ const ProfileScreen = () => {
     </ScrollView>
   );
 };
+
 const styles = StyleSheet.create({
   container: {
     flex: 1,
@@ -52,7 +64,8 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'space-between',
-    padding: 16,
+    padding: 30,
+    marginTop: 25,
   },
   icon: {
     width: 24, // Replace with the actual size of your icons
@@ -65,12 +78,13 @@ const styles = StyleSheet.create({
   },
   profileSection: {
     alignItems: 'center',
-    // Add your styling here
+    padding: 16, // Adjusted padding
   },
   profilePic: {
-    width: 100, // Replace with the actual size of your profile image
-    height: 100,
-    borderRadius: 50, // Half of the width/height to make it round
+    width: 120, // Adjusted width
+    height: 120, // Adjusted height
+    borderRadius: 60, // Half of the width/height to make it round
+    marginBottom: 16, // Added margin at the bottom
     // Add your styling here
   },
   role: {
@@ -78,15 +92,28 @@ const styles = StyleSheet.create({
   },
   bio: {
     // Add your styling here
+    textAlign: 'center', // Centered text
+    marginVertical: 16, // Added vertical margin
   },
   statsContainer: {
     flexDirection: 'row',
     justifyContent: 'space-around',
-    // Add your styling here
+    marginTop: 16, // Added margin at the top
+  },
+  statItem: {
+    alignItems: 'center',
   },
   statNumber: {
+    fontSize: 18,
+    fontWeight: 'bold',
+    // Add your styling here
+  },
+  statLabel: {
+    fontSize: 12,
+    color: '#888888', // Add your color code
     // Add your styling here
   },
   // Add more styles as needed
 });
-export default ProfileScreen;
+
+export default Profilescreen;

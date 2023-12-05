@@ -1,7 +1,10 @@
 import React from 'react';
 import { View, Text, TouchableOpacity, StyleSheet, Image } from 'react-native';
+import { useNavigation } from '@react-navigation/native';
 
 const Feedscreen = () => {
+  const navigation = useNavigation();
+
   return (
     <View style={styles.container}>
       <View style={styles.header}>
@@ -23,9 +26,6 @@ const Feedscreen = () => {
       <View style={styles.content}>
         {/* This is where your main content goes */}
       </View>
-      <TouchableOpacity style={styles.fab}>
-        {/* Floating action button content */}
-      </TouchableOpacity>
       <View style={styles.navBar}>
         {/* Navigation bar content */}
       </View>
@@ -68,18 +68,6 @@ const styles = StyleSheet.create({
   content: {
     flex: 1,
     // Add styles for your main content area
-  },
-  fab: {
-    position: 'absolute',
-    right: 16,
-    bottom: 16,
-    width: 56, // Adjust as needed
-    height: 56, // Adjust as needed
-    borderRadius: 28, // Half of the width/height
-    backgroundColor: '#E0E0E0', // Replace with the actual color from your design
-    justifyContent: 'center',
-    alignItems: 'center',
-    // Add shadow/elevation as needed
   },
   navBar: {
     flexDirection: 'row',

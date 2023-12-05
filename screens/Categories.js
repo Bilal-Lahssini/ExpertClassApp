@@ -36,7 +36,7 @@ const Categories = () => {
     console.log('Selected Categories: ', selectedCategories);
     // Add navigation or next steps here
      // Initialize useNavigation hook
-    navigation.navigate('Feedscreen'); // Replace 'NextScreen' with the actual screen name
+    navigation.navigate('TabNav'); // Replace 'NextScreen' with the actual screen name
   };
 
   return (
